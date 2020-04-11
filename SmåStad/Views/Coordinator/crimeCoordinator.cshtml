@@ -1,0 +1,19 @@
+﻿@{
+  Layout = "_CoordinatorLayout";
+  @model Department
+}
+<div id="content">
+  <p class="info">Du är inloggad som samordnare</p>
+  @await Component.InvokeAsync("ErrandDetail", ViewBag.ID)
+
+  <section id="bottomColumn">
+    <h3>Rediger Ärende</h3>
+    <form asp-controller="Coordinator" asp-action="Help">
+      <select asp-for="DepartmentId" asp-items="@(new SelectList(ViewBag.ListOfDepartments, "DepartmentId", "DepartmentName"))">
+        <option>Välj Avdelning</option>
+      </select>
+      <p><input class="button" type="submit" value="Spara" /></p>
+    </form>
+  </section>
+</div>
+

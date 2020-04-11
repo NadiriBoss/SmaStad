@@ -1,0 +1,61 @@
+﻿§
+@{
+  Layout = "_CoordinatorLayout";
+  @model IRepository
+}
+<div id="content">
+  <h2>Ärenden</h2>
+  <p class="info">Du är inloggad som samordnare</p>
+
+  <table id="managerForm">
+    <tr>
+      <td class="label">Välj status:</td>
+      <td class="label">Välj avdelning:</td>
+      <td>&nbsp;</td>
+      <td class="label">Ärendenummer:</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>
+        <select>
+          <option>Välj alla</option>
+          @foreach (ErrandStatus es in Model.ErrandStatuses) {
+            <option>@es.StatusName</option>
+          }
+        </select>
+      </td>
+      <td>
+        <select>
+          <option>Välj alla</option>
+          @foreach (Department d in Model.Departments) {
+            <option>@d.DepartmentName</option>
+          }
+        </select>
+      </td>
+      <td><input class="button" type="submit" value="Hämta lista" /></td>
+      <td><input name="casenumber" /></td>
+      <td><input class="button" type="submit" value="Sök" /></td>
+    </tr>
+  </table>
+
+  <table>
+    <tr>
+      <th>Ärende anmält</th>
+      <th>Ärendenummer</th>
+      <th>Miljöbrott</th>
+      <th>Status</th>
+      <th>Avdelning</th>
+      <th>Handläggare</th>
+    </tr>
+    @foreach (NewErrand e in Model.CoordinatorTable) {
+      <tr>
+        <td>@e.DateOfObservation</td>
+        <td><a asp-controller="Coordinator" asp-action="crimeCoordinator" asp-route-id="@e.RefNumber">@e.RefNumber</a></td>
+        <td>@e.TypeOfCrime</td>
+        <td>@e.StatusName</td>
+        <td>@e.DepartmentName</td>
+        <td>@e.EmployeeName</td>
+      </tr>
+    }
+  </table>
+</div><!-- End Content -->

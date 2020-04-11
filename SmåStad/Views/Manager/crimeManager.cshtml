@@ -1,0 +1,25 @@
+﻿@{
+  Layout = "_ManagerLayout";
+  @model Errand
+}
+
+
+<div id="content">
+  <p class="info">Du är inloggad som avdelningschef</p>
+  @await Component.InvokeAsync("ErrandDetail", ViewBag.ID)
+  <section id="bottomColumn">
+    <h3>Redigera ärende</h3>
+    <form asp-controller="Manager" asp-action="Help">
+      <select asp-for="EmployeeId" asp-items="@(new SelectList(ViewBag.ListOfEmployees, "EmployeeId", "EmployeeName"))">
+        <option>Välj handläggare</option>
+      </select>
+
+      <p>
+        <label><input asp-for="NoAction" />Ange motevering</label>
+        <textarea asp-for="InvestigatorInfo" rows="1"></textarea>
+      </p>
+
+      <p><input type="submit" value="Spara" /></p>
+    </form>
+  </section>
+</div>

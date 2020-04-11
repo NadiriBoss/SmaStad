@@ -1,0 +1,41 @@
+﻿@model Errand
+
+<div asp-validation-summary="All" class="error"></div>
+<p>
+  <label asp-for="Place">Vart har brottet skett någonstans?</label><br />
+  <input asp-for="Place" />
+  <span asp-validation-for="Place" class="error"></span>
+  *
+</p>
+<p>
+  <label asp-for="TypeOfCrime">Vilken typ av brott?</label><br />
+  <input asp-for="TypeOfCrime" />
+  <span asp-validation-for="Place" class="error"></span>
+  *
+</p>
+<p>
+  <label asp-for="DateOfObservation">När skedde brottet?</label><br />
+  <input type ="date" asp-for="DateOfObservation" />
+  <span asp-validation-for="DateOfObservation"></span>
+  *
+</p>
+<p>
+  <label asp-for="InformerName">Ditt namn (för- och efternamn)</label><br />
+  <input asp-for="InformerName" />
+  <span asp-validation-for="InformerName"></span>
+  *
+</p>
+<p>
+  <label asp-for="InformerPhone">Din telefon</label><br />
+  <input asp-for="InformerPhone" />
+  <span asp-validation-for="InformerPhone"></span>
+  *
+</p>
+<p>
+  <label asp-for="Observation">Beskriv din observation(ex.namn på misstänkt persson)</label><br />
+  <textarea asp-for="Observation" rows="5" cols="16"></textarea>
+</p>
+<p>
+  <input type="submit" value="Skicka in" />
+</p>
+

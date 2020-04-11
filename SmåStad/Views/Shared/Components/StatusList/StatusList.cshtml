@@ -1,0 +1,8 @@
+﻿@model IRepository
+
+<select>
+  <option>Välj alla</option>
+  @foreach (ErrandStatus e in Model.ErrandStatuses) {
+    <option>@e.StatusName</option>
+  }
+</select>

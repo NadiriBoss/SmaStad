@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+
+<html xml:lang="sv" lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <title>Småstads kommun</title>
+  <link rel="stylesheet" href="~/css/style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+<body>
+  <div id="wrapper">
+    <header id="logo">
+      <h1>Småstad</h1>
+      <p>Kommunen där vi bryr oss om varandra</p>
+    </header><!-- End header -->
+    <p class="info">Du är inloggad som samordnare</p>
+    <nav>
+      <ul>
+        <li><a class="reports" asp-controller="Coordinator" asp-action="crimeCoordinator">Start(Ärenden)</a></li>
+        <li><a class="reportAdd" asp-controller="Coordinator" asp-action="reportCoordinator">Rapportera brott</a></li>
+        <li class="right"><a class="logout" asp-controller="Account" asp-action="Logout">Logga ut</a></li>
+      </ul>
+    </nav><!-- End Nav -->
+    <main>
+      @RenderBody()
+    </main>
+    <footer>
+      &copy; Småstads Kommun All rights reserved.
+    </footer>
+  </div><!-- End Wrapper -->
+</body>
+</html>
